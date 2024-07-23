@@ -1,0 +1,102 @@
+{
+  "title": "Deno",
+  "name": "deno",
+  "version": "0.0.1",
+  "description": "Profile for creating deno projects",
+  "steps": [
+    {
+      "order": 0,
+      "title": "Create Source Directory",
+      "command": "src",
+      "type": "mkdir"
+    },
+    {
+      "order": 1,
+      "title": "Deno Init",
+      "binary": "deno",
+      "command": "init",
+      "type": "bin",
+      "path": "src"
+    }
+  ],
+  "options": [
+    {
+      "title": "Docs",
+      "description": "Generate location for documents",
+      "value": "doc",
+      "children": [
+        {
+          "title": "Create Architecture",
+          "value": "arch",
+          "steps": [
+            {
+              "order": 0,
+              "title": "Create Arch Directory",
+              "type": "mkdir",
+              "command": "docs/arch"
+            },
+            {
+              "order": 1,
+              "title": "Create default file",
+              "type": "touch",
+              "command": "docs/arch/arch.md"
+            }
+          ]
+        },
+        {
+          "title": "Create Design",
+          "value": "design",
+          "steps": [
+            {
+              "order": 0,
+              "title": "Create Design Directory",
+              "type": "mkdir",
+              "command": "docs/design"
+            },
+            {
+              "order": 1,
+              "title": "Create default file",
+              "type": "touch",
+              "command": "docs/design/design.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Initialise GIT",
+      "value": "arch",
+      "steps": [
+        {
+          "order": 0,
+          "title": "Create Arch Directory",
+          "type": "bin",
+          "binary": "git",
+          "command": "init"
+        }
+      ]
+    },
+    {
+      "title": "Setup Web App",
+      "value": "app",
+      "steps": [
+        {
+          "order": 0,
+          "title": "Set up a vite app",
+          "type": "bin",
+          "binary": "npm",
+          "path": "src",
+          "command": "create vite@latest ${webappName:Enter a name for webapp lowercase} -- --template react-ts"
+        },
+        {
+          "order": 1,
+          "title": "npm install",
+          "type": "bin",
+          "binary": "npm",
+          "path": "src/${webappName}",
+          "command": "install"
+        }
+      ]
+    }
+  ]
+}

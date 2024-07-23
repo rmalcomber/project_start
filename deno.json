@@ -1,0 +1,8 @@
+{
+  "version": "0.0.1",
+  "tasks": {
+    "dev": "deno run --watch main.ts",
+    "compile": "deno run --allow-run --allow-read compile.ts",
+    "test": "deno test --allow-read --allow-write --allow-run"
+  }
+}
